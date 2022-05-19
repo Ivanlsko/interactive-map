@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Interaktívna mapa</title>
+</head>
+<body>
+    <div id="map" height="1000px" width="1000px"><!-- <img src="assets/map.jpg" alt="map-of-slovakia"> --></div>
+    <div id="information">
+        <nav>
+            <div id="logo">logo</div>
+            <div id="language">
+                <div id="slovak" class="language_active">
+                    <p>SK</p> 
+                    <div><img class="active" src="assets/slovakia-flag.svg" alt="flag-of-slovakia">
+                    </div>
+                </div>
+                <div id="polish" class="language_inactive">
+                    <p>PL</p> 
+                    <div><img src="assets/poland-flag.svg" alt="flag-of-poland">
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <h1>Konkatedrála sv. Mikuláša</h1>
+            <section id="icon-description">
+              <div class="icon">
+                <div>
+                    <img src="assets/church.png" alt="church-icon">
+                </div>
+                    <p>Rimokatolický</p>
+                </div>
+            <div class="icon">
+                <div>
+                    <img src="assets/calendar.png" alt="calendar-icon"></div>
+                    <p>Rok výstavby 1465</p>
+                </div>
+            <div class="icon">
+                <div>
+                    <img src="assets/categories.png" alt="categories-icon"></div>
+                    <p>Gotika</p>
+                </div>
+            </section>
+            <p id="short-description">Patrí k najvýznamnejším historickým dominantám Prešova. Ide o najstaršiu budovu a jedinú zachovanú gotickú sakrálnu stavbu v meste.</p>
+            <section id="media">
+                <div><img src="assets/video-dummy.png" alt=""></div>
+                <div><img src="assets/360-dummy.png" alt=""></div>
+            </section>
+            <section id="long-description">
+                <h2>O kostole</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel consectetur non et quam non quis. Ullamcorper lobortis id sit sed sit vel, neque. Eget tempus nulla eget risus iaculis massa ultrices. Congue commodo odio ut ut viverra. Fusce massa elit, justo, tortor malesuada. Enim, arcu turpis dignissim sed velit. <br><br>
+
+                    Montes, ultrices natoque tellus at libero egestas elementum. Metus viverra ipsum praesent adipiscing nibh. Ut sapien est vitae sapien arcu risus nunc. Ornare ultricies facilisis sit pellentesque vitae, quis leo. Ut nunc adipiscing tellus mauris id at. A ut lobortis ipsum amet. Mi pulvinar pharetra dolor nulla. Nec dignissim non facilisi scelerisque ullamcorper nullam. Tristique at iaculis neque tortor lorem rutrum odio. <br><br>
+                    
+                    Et quis morbi dignissim amet, donec euismod lacus, donec. Adipiscing sed venenatis sit diam cras. Tortor proin quis a aliquet sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis. Sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis.  Sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis.</p>
+            </section>
+        </main>
+        <section id="buttons">
+            <div class= "btn-media" id="show-video">
+                <p>Zobraziť videoprehliadku</p>
+                <div class="button-icon">
+                    <img src="assets/video-icon-white.svg" alt=""></div>
+            </div>
+            <div class= "btn-media" id="show-360">
+                <p>Zobraziť 360 fotografiu</p>
+                <div class="button-icon">
+                    <img src="assets/360-icon-white.svg" alt=""></div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl-1zYXYGuMz1ORi2TctriX40Rr1wHtIo&map_ids=ce05a83d3d265b9a&callback=initMap"
+      defer
+    ></script>
+
+</body>
+</html>
