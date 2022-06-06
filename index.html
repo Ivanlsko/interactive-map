@@ -13,7 +13,7 @@
         <nav>
             <div id="logo">logo</div>
             <div id="language">
-                <div id="slovak" class="language_active">
+                <div id="slovak">
                     <p>SK</p> 
                     <div><img class="active" src="assets/slovakia-flag.svg" alt="flag-of-slovakia">
                     </div>
@@ -26,33 +26,33 @@
             </div>
         </nav>
         <main>
-            <h1>Konkatedrála sv. Mikuláša</h1>
+            <h1 id="church-name">Konkatedrála sv. Mikuláša</h1>
             <section id="icon-description">
               <div class="icon">
                 <div>
                     <img src="assets/church.png" alt="church-icon">
                 </div>
-                    <p>Rimokatolický</p>
+                    <p id="church-type">Rimokatolický</p>
                 </div>
             <div class="icon">
                 <div>
                     <img src="assets/calendar.png" alt="calendar-icon"></div>
-                    <p>Rok výstavby 1465</p>
+                    <p id="church-year">Rok výstavby 1465</p>
                 </div>
             <div class="icon">
                 <div>
                     <img src="assets/categories.png" alt="categories-icon"></div>
-                    <p>Gotika</p>
+                    <p id="church-style">Gotika</p>
                 </div>
             </section>
             <p id="short-description">Patrí k najvýznamnejším historickým dominantám Prešova. Ide o najstaršiu budovu a jedinú zachovanú gotickú sakrálnu stavbu v meste.</p>
             <section id="media">
-                <div><img src="assets/video-dummy.png" alt=""></div>
-                <div><img src="assets/360-dummy.png" alt=""></div>
+                <div style="position:relative;"><iframe src="https://player.vimeo.com/video/32001208?h=acec7b3a82&color=ffffff&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                <div id="vrview"></div>
             </section>
             <section id="long-description">
                 <h2>O kostole</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel consectetur non et quam non quis. Ullamcorper lobortis id sit sed sit vel, neque. Eget tempus nulla eget risus iaculis massa ultrices. Congue commodo odio ut ut viverra. Fusce massa elit, justo, tortor malesuada. Enim, arcu turpis dignissim sed velit. <br><br>
+                <p id="long-description-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel consectetur non et quam non quis. Ullamcorper lobortis id sit sed sit vel, neque. Eget tempus nulla eget risus iaculis massa ultrices. Congue commodo odio ut ut viverra. Fusce massa elit, justo, tortor malesuada. Enim, arcu turpis dignissim sed velit. <br><br>
 
                     Montes, ultrices natoque tellus at libero egestas elementum. Metus viverra ipsum praesent adipiscing nibh. Ut sapien est vitae sapien arcu risus nunc. Ornare ultricies facilisis sit pellentesque vitae, quis leo. Ut nunc adipiscing tellus mauris id at. A ut lobortis ipsum amet. Mi pulvinar pharetra dolor nulla. Nec dignissim non facilisi scelerisque ullamcorper nullam. Tristique at iaculis neque tortor lorem rutrum odio. <br><br>
                     
@@ -73,6 +73,8 @@
         </section>
     </div>
     <script src="script.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl-1zYXYGuMz1ORi2TctriX40Rr1wHtIo&map_ids=ce05a83d3d265b9a&callback=initMap"
       defer

@@ -96,7 +96,7 @@ h2 {
   padding: 1% 8% 0% 7%;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 79.8%;
+  height: 84.8%;
 }
 
 #information main #icon-description {
@@ -145,10 +145,14 @@ h2 {
 
 #information main #media div {
   width: 50%;
+  padding: 0%;
+  height: 28,125%;
 }
 
-#information main #media div img {
+#information main #media div * {
   width: 100%;
+  -webkit-box-shadow: 0px 0px 0px 100px red inset;
+          box-shadow: 0px 0px 0px 100px red inset;
 }
 
 #information main #long-description {
@@ -203,5 +207,9 @@ h2 {
   z-index: 0;
   height: 100%;
   width: 100%;
+}
+
+.flickr-embed-photo-footer {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
