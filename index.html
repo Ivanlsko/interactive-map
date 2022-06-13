@@ -8,58 +8,100 @@
     <title>Interaktívna mapa</title>
 </head>
 <body>
-    <div id="map" height="1000px" width="1000px"><!-- <img src="assets/map.jpg" alt="map-of-slovakia"> --></div>
-    <div id="information">
-        <nav>
-            <div id="logo">logo</div>
-            <div id="language">
-                <div id="slovak">
-                    <p>SK</p> 
-                    <div><img class="active" src="assets/slovakia-flag.svg" alt="flag-of-slovakia">
-                    </div>
-                </div>
-                <div id="polish" class="language_inactive">
-                    <p>PL</p> 
-                    <div><img src="assets/poland-flag.svg" alt="flag-of-poland">
-                    </div>
+    <nav>
+        <div id="logo"><img src="assets/interreg-logo.jpg" alt="" srcset=""><img src="assets/psk-logo.jpg" alt="" srcset=""></div>
+        <div id="language">
+            <div id="slovak">
+                <p>SK</p> 
+                <div><img class="active" src="assets/slovakia-flag.svg" alt="flag-of-slovakia">
                 </div>
             </div>
-        </nav>
-        <main>
-            <h1 id="church-name">Konkatedrála sv. Mikuláša</h1>
-            <section id="icon-description">
-              <div class="icon">
-                <div>
-                    <img src="assets/church.png" alt="church-icon">
+            <div id="polish" class="language_inactive">
+                <p>PL</p> 
+                <div><img src="assets/poland-flag.svg" alt="flag-of-poland">
                 </div>
-                    <p id="church-type">Rimokatolický</p>
-                </div>
-            <div class="icon">
-                <div>
-                    <img src="assets/calendar.png" alt="calendar-icon"></div>
-                    <p id="church-year">Rok výstavby 1465</p>
-                </div>
-            <div class="icon">
-                <div>
-                    <img src="assets/categories.png" alt="categories-icon"></div>
-                    <p id="church-style">Gotika</p>
-                </div>
-            </section>
-            <p id="short-description">Patrí k najvýznamnejším historickým dominantám Prešova. Ide o najstaršiu budovu a jedinú zachovanú gotickú sakrálnu stavbu v meste.</p>
-            <section id="media">
-                <div style="position:relative;"><iframe src="https://player.vimeo.com/video/32001208?h=acec7b3a82&color=ffffff&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-                <div id="vrview"></div>
-            </section>
-            <section id="long-description">
-                <h2>O kostole</h2>
-                <p id="long-description-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel consectetur non et quam non quis. Ullamcorper lobortis id sit sed sit vel, neque. Eget tempus nulla eget risus iaculis massa ultrices. Congue commodo odio ut ut viverra. Fusce massa elit, justo, tortor malesuada. Enim, arcu turpis dignissim sed velit. <br><br>
-
-                    Montes, ultrices natoque tellus at libero egestas elementum. Metus viverra ipsum praesent adipiscing nibh. Ut sapien est vitae sapien arcu risus nunc. Ornare ultricies facilisis sit pellentesque vitae, quis leo. Ut nunc adipiscing tellus mauris id at. A ut lobortis ipsum amet. Mi pulvinar pharetra dolor nulla. Nec dignissim non facilisi scelerisque ullamcorper nullam. Tristique at iaculis neque tortor lorem rutrum odio. <br><br>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+        <section id="map-and-info"><div id="map" height="1000px" width="1000px"></div>
+            <div id="information">
+                <main>
+                    <div id="back-to-map"></div>
+                    <h1 id="church-name">Konkatedrála sv. Mikuláša</h1>
+                    <section id="icon-description">
+                      <div class="icon">
+                        <div>
+                            <img src="assets/church.png" alt="church-icon">
+                        </div>
+                            <p id="church-type">Rimokatolický</p>
+                        </div>
+                    <div class="icon">
+                        <div>
+                            <img src="assets/calendar.png" alt="calendar-icon"></div>
+                            <p id="church-year">Rok výstavby 1465</p>
+                        </div>
+                    <div class="icon">
+                        <div>
+                            <img src="assets/categories.png" alt="categories-icon"></div>
+                            <p id="church-style">Gotika</p>
+                        </div>
+                    </section>
+                    <p id="short-description">Patrí k najvýznamnejším historickým dominantám Prešova. Ide o najstaršiu budovu a jedinú zachovanú gotickú sakrálnu stavbu v meste.</p>
+                    <section id="media">
+                        <div style="position:relative;"><iframe src="https://player.vimeo.com/video/32001208?h=acec7b3a82&color=ffffff&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                        <div id="vrview"></div>
+                    </section>
+                    <section id="long-description">
+                        <h2>O kostole</h2>
+                        <p id="long-description-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel consectetur non et quam non quis. Ullamcorper lobortis id sit sed sit vel, neque. Eget tempus nulla eget risus iaculis massa ultrices. Congue commodo odio ut ut viverra. Fusce massa elit, justo, tortor malesuada. Enim, arcu turpis dignissim sed velit. <br><br>
+        
+                            Montes, ultrices natoque tellus at libero egestas elementum. Metus viverra ipsum praesent adipiscing nibh. Ut sapien est vitae sapien arcu risus nunc. Ornare ultricies facilisis sit pellentesque vitae, quis leo. Ut nunc adipiscing tellus mauris id at. A ut lobortis ipsum amet. Mi pulvinar pharetra dolor nulla. Nec dignissim non facilisi scelerisque ullamcorper nullam. Tristique at iaculis neque tortor lorem rutrum odio. <br><br>
+                            
+                            Et quis morbi dignissim amet, donec euismod lacus, donec. Adipiscing sed venenatis sit diam cras. Tortor proin quis a aliquet sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis. Sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis.  Sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis.</p>
+                    </section>
+                </main>
+            
+        </section>
+        </div>
+        <section id="churches-menu">
+            <template class="template">
+            <div class="church-card">
+                <img class="churches-menu-img" src="assets/maly-obrazok.jpg" alt="">
+                <div class="churches-menu-information">
+                    <h3>Chrám Svätého Mikuláša</h2>
+                    <div class="menu-icons">
+                        <div class="icon">
+                            <div>
+                                <img src="assets/church.png" alt="church-icon">
+                            </div>
+                                <p id="church-type">Rimokatolický</p>
+                            </div>
+                        <div class="icon">
+                            <div>
+                                <img src="assets/calendar.png" alt="calendar-icon"></div>
+                                <p id="church-year">1465</p>
+                            </div>
+                        <div class="icon">
+                            <div>
+                                <img src="assets/categories.png" alt="categories-icon"></div>
+                                <p id="church-style">Gotika</p>
+                            </div>
+                    </div>
+                    <p class="churches-menu-description">Ullamcorper lobn quis. Ullamcorper lobortis id sit sed sit vel, neque...</p>
                     
-                    Et quis morbi dignissim amet, donec euismod lacus, donec. Adipiscing sed venenatis sit diam cras. Tortor proin quis a aliquet sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis. Sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis.  Sed sed urna dictum ac. Auctor vel mauris sodales odio risus eu viverra rhoncus mattis.</p>
-            </section>
-        </main>
-        <section id="buttons">
+                </div>
+                <div class="btn"><div><img src="assets/arrow-right.svg" alt="" srcset=""></div>
+            </div>
+        </template>
+        </section>
+
+    </main>
+
+
+    <footer><p>Projekt je realizovaný v rámci Programu cezhraničnej spolupráce Interreg V-A Poľsko-Slovensko 2014-2020, cez Európsky fond regionálneho rozvoja. </p></footer>
+    <!--         <section id="buttons">
+
             <div class= "btn-media" id="show-video">
                 <p>Zobraziť videoprehliadku</p>
                 <div class="button-icon">
@@ -70,8 +112,7 @@
                 <div class="button-icon">
                     <img src="assets/360-icon-white.svg" alt=""></div>
             </div>
-        </section>
-    </div>
+        </section> -->
     <script src="script.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
