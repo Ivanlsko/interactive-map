@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM ready!");
 });
 
-//window.addEventListener('load', onVrViewLoad);
+window.addEventListener('load', onVrViewLoad);
 
 function onVrViewLoad() {
   //alert("loaded")
@@ -131,9 +131,13 @@ function manageLangs() {
 
   function getData(number, currentChurch){
     let ID;
+    console.log("currentchurch:", currentChurch) 
     this ? ID = this.churchID : ID = currentChurch;
     //if number isn't definied, getData() was called after clicked on map pin
-    if (!(Number(number))) number = 2;
+    if (!(Number(number))) {
+      document.querySelector("#church-name").setAttribute("title", this.churchID)
+      number = 2;
+    }
     console.log("id", ID, "number ", number)
 
     if(document.documentElement.lang == "sk") {
@@ -165,13 +169,16 @@ function manageLangs() {
     if (number == 2) {
       console.log("number 2")
       showData(selectedChurch)
-      setAttribute(selectedChurch)
+      //setAttribute(selectedChurch)
       showInformation()
+      loadMenu(jsonData)
     }
 
     if (number == 3) {
       console.log("number 3")
       loadMenu(jsonData)
+
+
     }
 
     if (number == 1) loadMenu(jsonData)
@@ -196,9 +203,9 @@ function manageLangs() {
       if (i.classList.length > 1) {
         if (i.classList[(i.classList.length) - 1] == "sk") {
           console.log(i)
-          i.style.display = "none";
+          i.remove();
       } else {
-        i.style.display = "none";
+        i.remove();
       }
     }
     })
@@ -207,19 +214,32 @@ function manageLangs() {
       const templateContent = document.querySelector(".template").content;
       const templateCopy = templateContent.cloneNode(true);
       templateCopy.querySelector(".churches-menu-information > h3").textContent = `${entry[1].name}`;
+
       const parent = document.querySelector("#churches-menu");
       templateCopy.querySelector(".church-card").addEventListener("click", controllerCard)
       templateCopy.querySelector(".church-card").classList.add(`${document.documentElement.lang}`)
       parent.appendChild(templateCopy); 
     });
+
+    let menuCards = document.querySelectorAll(".church-card");
+    for(let i = 0; i < menuCards.length; i++) {
+      if (i == 0) menuCards[i].setAttribute("title", "Chrám svätého Lukáša v Krivom");
+      if (i == 1) menuCards[i].setAttribute("title", "Chrám sv. Mikuláša v Bodružali");
+      if (i == 2) menuCards[i].setAttribute("title", "Chrám Narodenia Panny Márie v Losi");
+      if (i == 3) menuCards[i].setAttribute("title", "Chrám sv. Kozmu a Damiána - Lukov");
+      if (i == 4) menuCards[i].setAttribute("title", "Chrám sv. archanjela Michala v Przysłope");
+      if (i == 5) menuCards[i].setAttribute("title", "Chrám sv. Demetra zo Solúna v Śnietnici");
+    }
   }
 
   function controllerCard() {
-    let clickedCard = (this.querySelector("h3")).textContent
+    let clickedCard = this.getAttribute("title")
     console.log("controllerCard()")
     getData(2, clickedCard)
+    console.log("controllerCard()", clickedCard)    
+    document.querySelector("#church-name").setAttribute("title", clickedCard)
+    showInformation(clickedCard)
     changeActiveState(this)
-    showInformation()
   }
 
   function changeActiveState(clickedCard) {
@@ -235,8 +255,8 @@ function manageLangs() {
     document.querySelector(".activeCard .btn").style.opacity = 1;
   }  
 
-  function showInformation() {
-    console.log(this)
+  function showInformation(title) {
+    //console.log("showinformation()", title)
     document.querySelector("#information").style.opacity = 1;
     document.querySelector("#information").style.zIndex = 1;
     informationShown = true;

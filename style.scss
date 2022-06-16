@@ -82,10 +82,10 @@ nav {
 footer {
     display: flex;
     justify-content: center;
-    height: 3vh;
+    height: 5vh;
     font : {
         weight: 300;
-        size: 13px;
+        size: 0.677vw;
     }
 }
 
@@ -119,57 +119,83 @@ footer {
     
         main {
             //height: 90%;
-            padding: 1% 8% 0% 7%;
+            padding: 0%;
             overflow-y: auto;
             overflow-x: hidden;
-            height: 84.8%;
+            height: 100%;
+            display: flex;
             //overflow-y: auto;
-            #back-to-map{
-                width: 30px;
-                height: 15px;
-                background-color: black;
-                cursor: pointer;
-            }
-            #icon-description{
-                display: flex;
-                justify-content: space-between;
-                .icon {
-                    display: flex;
-                    align-items: center;
-                    div {
-                        padding-top: 6.5%;
-                    }
-                    p {
-                        margin-left: 10%;
-                        white-space: nowrap;
-                        font-size: $additional-copy
-                    }
-                }
-            }
-            #short-description {
-                font-style: italic;
-                font-size: $copy;
-                color: rgb(37, 51, 62);
-            }
             #media {
+                width: 40%;
+                height: 100%;  
                 display: flex;
-                justify-content: space-between;
-                margin: 6% -1.3% 0%;
-                div {
-                    width: 50%;
-                    padding: 0%;
-                    height: 28,125%;
-                    * {
+                position: sticky;
+                top: 0;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 0% 3% 0%;
+                border: 2px solid;
+                #video {                    
+                    width: 100%;
+                    height: 40%;
+                    margin: 0% 0%;
+                    border: 2px solid red;
+                 #video-iframe{
+                    width: 100%;
+                    height: 84%;                    
+                    margin-bottom: auto;
+                } 
+            }
+                #vrview {
+                    width: 100%;
+                    height: 30%;
+                    border: 2px solid blue; 
+                    iframe {
                         width: 100%;
-                        box-shadow:0px 0px 0px 100px red inset;
+                        height: 90%;
                     }
                 }
             }
-            #long-description{
-                display: block;
-                font-size: $copy;
-                p {color: rgb(37, 51, 62)}
-            } 
+
+            #text-wrapper{
+                width: 50%;
+                #back-to-map{
+                    width: 30px;
+                    height: 15px;
+                    background-color: black;
+                    cursor: pointer;
+                }
+                #icon-description{
+                    display: flex;
+                    justify-content: space-between;
+                    .icon {
+                        display: flex;
+                        align-items: center;
+                        div {
+                            padding-top: 6.5%;
+                        }
+                        p {
+                            margin-left: 10%;
+                            white-space: nowrap;
+                            font-size: $additional-copy
+                        }
+                    }
+                }
+                #short-description {
+                    font-style: italic;
+                    font-size: $copy;
+                    color: rgb(37, 51, 62);
+                }
+                #long-description{
+                    display: block;
+                    font-size: $copy;
+                    p {color: rgb(37, 51, 62)}
+                } 
+                  
+}
+
+
         }
 /*          #buttons {
                 position: absolute;
@@ -217,7 +243,7 @@ footer {
             }
         }
         .church-card {
-            height: 15%;
+            //height: auto;
             width: 100%;
             //border: 2px solid black;
             display: flex;
@@ -240,7 +266,7 @@ footer {
 
             }
             .churches-menu-img {
-                max-height: 100%;
+                max-height: 7vw;
                 border-radius: 8px 0px 0px 8px;
 
             }
@@ -251,7 +277,7 @@ footer {
                 h3{
                     font : {
                     family: "Expose";
-                    size: 18px;
+                    size: 0.938vw;
                     weight: 500;
                     }
                     opacity: 0.83;
@@ -261,26 +287,28 @@ footer {
                     display: flex;
                     justify-content: space-between;
                     //width: %;
-                    margin-top: -8%;
+                    margin-top: -6%;
                     .icon {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
                         p {
+                            margin-top: 0.44vw;
                         opacity: 0.7;
                         }
-                        img {
-                            max-width: 70%;
+                        svg {
+                            max-width: 65%;
+                            fill: #44646E;
                         }
                         font : {
-                            size: 14px;
+                            size: 0.729vw;
                         }
                         }
                     }
                 }
                 .churches-menu-description {
                     font: {
-                        size: 15px;
+                        size: 0.781vw;
                         weight: 400
                     }
                     opacity: 0.8;
