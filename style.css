@@ -1,21 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 body {
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Inter";
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   background-color: white;
 }
 
 h1, h2 {
-  font-family: "Lora";
+  font-family: "Expose";
   font-weight: 500;
   color: #1E2021;
 }
 
 h1 {
   font-size: 2.2vw;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 h2 {
@@ -47,6 +48,14 @@ nav #logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav #logo img {
+  width: 120px;
+  margin-right: 1vw;
 }
 
 nav #language {
@@ -112,9 +121,26 @@ footer {
           justify-content: space-between;
 }
 
+#main-content #show-menu-button {
+  display: none;
+  /* width: 20px;
+        height: 20px; */
+  background-color: black;
+  position: absolute;
+  z-index: 4;
+  right: 30px;
+  top: 30px;
+  padding: 0 16px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 #main-content #map-and-info {
-  width: 68.5%;
+  width: calc(100% - 420px);
   position: relative;
+  -webkit-filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.172));
+          filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.172));
 }
 
 #main-content #map-and-info #map {
@@ -275,14 +301,11 @@ footer {
 }
 
 #main-content #churches-menu {
-  width: 30%;
+  width: 400px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -292,15 +315,27 @@ footer {
 #main-content #churches-menu .activeCard {
   background-color: #3a515c;
   color: white;
+  -webkit-box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.23) !important;
+          box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.23) !important;
+}
+
+#main-content #churches-menu .activeCard .icon svg {
+  fill: #b7bc89 !important;
 }
 
 #main-content #churches-menu .activeCard .icon p {
-  color: #d5db9f;
+  color: #e6ecac;
   opacity: 1;
 }
 
+#main-content #churches-menu .church-card:not(:last-child) {
+  margin-bottom: 2vh;
+}
+
 #main-content #churches-menu .church-card {
-  width: 100%;
+  height: 12.61vh;
+  width: 400px;
+  border: 2px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -332,18 +367,18 @@ footer {
 }
 
 #main-content #churches-menu .church-card .churches-menu-img {
-  max-height: 7vw;
+  min-height: 100%;
   border-radius: 8px 0px 0px 8px;
 }
 
 #main-content #churches-menu .church-card .churches-menu-information {
-  margin: -1.5% 4%;
+  margin: -5px 20px;
   width: 60%;
 }
 
 #main-content #churches-menu .church-card .churches-menu-information h3 {
   font-family: "Expose";
-  font-size: 0.938vw;
+  font-size: 14px;
   font-weight: 500;
   opacity: 0.83;
   letter-spacing: 0.05em;
@@ -356,7 +391,7 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: -6%;
+  margin-top: -15px;
 }
 
 #main-content #churches-menu .church-card .churches-menu-information .menu-icons .icon {
@@ -369,23 +404,147 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 0.729vw;
 }
 
 #main-content #churches-menu .church-card .churches-menu-information .menu-icons .icon p {
-  margin-top: 0.44vw;
+  margin-top: 10px;
   opacity: 0.7;
+  font-size: 11px;
 }
 
 #main-content #churches-menu .church-card .churches-menu-information .menu-icons .icon svg {
-  max-width: 65%;
+  width: 60% !important;
   fill: #44646E;
 }
 
 #main-content #churches-menu .church-card .churches-menu-description {
-  font-size: 0.781vw;
+  font-size: 12px;
   font-weight: 400;
   opacity: 0.8;
-  margin-top: -2.3%;
+  margin-top: -3px;
+}
+
+.none {
+  display: none !important;
+}
+
+/*    @media screen and (max-width: 1100px) {
+        body {
+        display: flex;
+         flex-direction: column;
+         //align-items: center;
+        }
+        #main-content{
+            width: 96vw;
+            margin-left: auto;
+            margin-right: auto;
+            #show-menu-button{
+                display: block;
+            }
+            #map-and-info{
+                width: 100%
+            }
+            #churches-menu{
+                //display: none;                
+                position: absolute;
+                background-color: white;
+                right: 0;   
+                height: 89vh;
+                margin-right: 2vw;  
+                //display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .church-card{
+                    width: 90%;
+                    height: 11.6vh;
+                }
+
+            }
+        } 
+
+        footer {
+            font-size: 1vw;
+        }
+    }*/
+@media screen and (max-width: 660px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  nav #logo img {
+    width: 110px;
+    margin: 1.5vw;
+  }
+  nav #language {
+    margin-right: 10%;
+  }
+  #main-content {
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #main-content #show-menu-button {
+    display: block;
+  }
+  #main-content #map-and-info {
+    width: 100%;
+  }
+  #main-content #churches-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    width: 100vw;
+    height: 89vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #main-content #churches-menu .church-card {
+    width: 90%;
+    height: 11.6vh;
+  }
+  #main-content #churches-menu .church-card .churches-menu-information .icon p {
+    font-size: 11px;
+  }
+  #main-content footer {
+    font-size: 1.877vw;
+    text-align: center;
+    padding: 0 5vw;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  #churches-menu {
+    width: 540px !important;
+  }
+  #churches-menu .church-card {
+    width: 540px !important;
+  }
+  #churches-menu .church-card h3 {
+    font-size: 17px !important;
+  }
+  #churches-menu .church-card .churches-menu-description {
+    font-size: 14px !important;
+  }
+  #churches-menu .church-card .menu-icons p {
+    font-size: 13px !important;
+  }
+  #map-and-info {
+    width: calc(100% - 570px) !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

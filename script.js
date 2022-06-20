@@ -35,12 +35,13 @@ var gmarkers = Array();
 
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    let map = new google.maps.Map(document.getElementById("map"), {
       mapId: "ce05a83d3d265b9a", 
-      center: { lat: 49.44, lng: 21.1 },
+      center: { lat: 49.44, lng: 21.35 },
       zoom: 10.7,
       minZoom: 10,
       maxZoom: 13,
+      fullscreenControl: 0,
       restriction: {
         latLngBounds: SKPL_BOUNDS,
         strictBounds: false,
@@ -122,7 +123,7 @@ function manageLangs() {
     document.documentElement.lang = "sk";
   }
   let currentChurch = document.querySelector("#church-name").getAttribute("title");
-  let number = informationShown ? 2 : 3;
+  let number = informationShown ? 2 : 1;
   getData(number, currentChurch);
   setLanguage();
 }
@@ -136,6 +137,7 @@ function manageLangs() {
     //if number isn't definied, getData() was called after clicked on map pin
     if (!(Number(number))) {
       document.querySelector("#church-name").setAttribute("title", this.churchID)
+
       number = 2;
     }
     console.log("id", ID, "number ", number)
@@ -170,14 +172,19 @@ function manageLangs() {
       console.log("number 2")
       showData(selectedChurch)
       //setAttribute(selectedChurch)
-      showInformation()
       loadMenu(jsonData)
+      showInformation()
+      let relatedCard = document.querySelector(`.church-card[title="${ID}"]`)
+      console.log("here", relatedCard)
+      changeActiveState(relatedCard)
     }
 
     if (number == 3) {
       console.log("number 3")
-      loadMenu(jsonData)
-
+      showData(selectedChurch)
+      //loadMenu(jsonData)
+      console.log("tuto:", ID)
+      //changeActiveState(ID)
 
     }
 
@@ -213,7 +220,25 @@ function manageLangs() {
     Object.entries(jsonData).forEach((entry) => {
       const templateContent = document.querySelector(".template").content;
       const templateCopy = templateContent.cloneNode(true);
-      templateCopy.querySelector(".churches-menu-information > h3").textContent = `${entry[1].name}`;
+      let menuShortDescription = (entry[1].shortDescription).substring(0, 70) + "...";
+      let menuYear = (entry[1].year).substring(((entry[1].year).length) - 4);
+      let cardName;
+      if((entry[1].name).length > 31) {
+        if (window.innerWidth > 1500) {
+          if((entry[1].name).length > 40) {
+            cardName = `${(entry[1].name).substring(0, 37)}...`
+          } else {
+            cardName = `${(entry[1].name).substring(0, 40)}`
+          }
+          
+        } else cardName = `${(entry[1].name).substring(0, 31)}...`
+      } else cardName = (entry[1].name);
+      templateCopy.querySelector(".churches-menu-information > h3").textContent = `${cardName}`;
+      templateCopy.querySelector(".churches-menu-description").textContent = menuShortDescription;
+      templateCopy.querySelector(".churches-menu-information .church-year").textContent = menuYear;
+      templateCopy.querySelector(".churches-menu-information .church-type").textContent = `${entry[1].type}`;
+      templateCopy.querySelector(".churches-menu-information .church-style").textContent = `${entry[1].style}`;
+      templateCopy.querySelector(".churches-menu-img").src = `${entry[1].image}`;
 
       const parent = document.querySelector("#churches-menu");
       templateCopy.querySelector(".church-card").addEventListener("click", controllerCard)
@@ -235,7 +260,7 @@ function manageLangs() {
   function controllerCard() {
     let clickedCard = this.getAttribute("title")
     console.log("controllerCard()")
-    getData(2, clickedCard)
+    getData(3, clickedCard, this)
     console.log("controllerCard()", clickedCard)    
     document.querySelector("#church-name").setAttribute("title", clickedCard)
     showInformation(clickedCard)
@@ -275,9 +300,31 @@ function manageLangs() {
     document.querySelector("#map").style.opacity = 1;
     document.querySelector("#map").style.zIndex = 1;
 
+    document.querySelector(".activeCard .btn").style.opacity = 0;
+    document.querySelector(".activeCard").classList.remove("activeCard");
+
+
+
+
   })
 
 window.initMap = initMap;
+
+//responsivity
+
+document.querySelector("#show-menu-button").addEventListener("click", () => {
+  let btn = document.querySelector("#show-menu-button");
+  let menu = document.querySelector("#churches-menu");
+  let menuStyle = getComputedStyle(menu);
+  if(menuStyle.display == "none") {
+    btn.querySelector("p").textContent = "zatvoriť prehľad";
+    menu.style.display = "flex"
+  } else {
+    menuStyle.display = "none";
+    btn.querySelector("p").textContent = "prehľad kostolov"
+  }
+  //document.querySelector("#churches-menu").classList.toggle("none");
+})
 
 /*   document.querySelectorAll("#churches-menu").forEach((i) =>{
     console.log("jejje")
