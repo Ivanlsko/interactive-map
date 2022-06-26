@@ -34,7 +34,6 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 6vh;
-  background-color: #FCFCFC;
   min-height: 60px;
   position: relative;
 }
@@ -99,19 +98,21 @@ nav #language #polish p {
 }
 
 footer {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 5vh;
+  height: 50px;
   font-weight: 300;
-  font-size: 0.677vw;
+  font-size: 10px;
+  color: #44646E;
 }
 
 #main-content {
-  height: 89vh;
+  height: calc(100% - 100px);
   margin: 0% 1.5%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -119,6 +120,7 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
 #main-content #show-menu-button {
@@ -159,7 +161,6 @@ footer {
   height: 100%;
   z-index: -1;
   border-radius: 8px;
-  border: 2px solid;
   opacity: 0;
   /*          #buttons {
                 position: absolute;
@@ -218,32 +219,41 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0% 3% 0%;
-  border: 2px solid;
+  background-color: #44646E;
+  margin: 0% 3% 0% 0%;
+  border-radius: 8px 0px 0px 8px;
+}
+
+#main-content #map-and-info #information main #media .media-wrapper {
+  width: 21vw;
+  height: calc((21vw/16*9));
+  background-color: #44646E;
+  -webkit-filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.172));
+          filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.172));
+  border-radius: 8px;
 }
 
 #main-content #map-and-info #information main #media #video {
-  width: 100%;
-  height: 40%;
   margin: 0% 0%;
-  border: 2px solid red;
+  margin-bottom: 2vw;
 }
 
 #main-content #map-and-info #information main #media #video #video-iframe {
-  width: 100%;
-  height: 84%;
   margin-bottom: auto;
+  width: 100%;
+  height: calc(21vw/16*9);
+  border-radius: 8px;
 }
 
 #main-content #map-and-info #information main #media #vrview {
-  width: 100%;
-  height: 30%;
-  border: 2px solid blue;
+  /*                     width: 100%;
+                    height: 30%; */
 }
 
 #main-content #map-and-info #information main #media #vrview iframe {
   width: 100%;
-  height: 90%;
+  height: calc(21vw/16*9);
+  border-radius: 8px;
 }
 
 #main-content #map-and-info #information main #text-wrapper {
@@ -251,10 +261,31 @@ footer {
 }
 
 #main-content #map-and-info #information main #text-wrapper #back-to-map {
-  width: 30px;
-  height: 15px;
-  background-color: black;
+  /* width: 30px;
+                    height: 15px;
+                    background-color: black; */
+  position: absolute;
+  right: 2vw;
+  width: 32px;
+  height: 32px;
+  top: 2.7vw;
+  padding: 6px;
+  border-radius: 100px;
+  background-color: #b7bc89;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main-content #map-and-info #information main #text-wrapper #back-to-map img {
+  width: 24px;
 }
 
 #main-content #map-and-info #information main #text-wrapper #icon-description {
@@ -301,6 +332,9 @@ footer {
 }
 
 #main-content #churches-menu {
+  position: relative;
+  z-index: 999;
+  overflow-y: auto;
   width: 400px;
   height: 100%;
   display: -webkit-box;
@@ -315,8 +349,8 @@ footer {
 #main-content #churches-menu .activeCard {
   background-color: #3a515c;
   color: white;
-  -webkit-box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.23) !important;
-          box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.23) !important;
+  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.23) !important;
+          box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.23) !important;
 }
 
 #main-content #churches-menu .activeCard .icon svg {
@@ -328,21 +362,21 @@ footer {
   opacity: 1;
 }
 
-#main-content #churches-menu .church-card:not(:last-child) {
-  margin-bottom: 2vh;
+#main-content #churches-menu .church-card {
+  margin-bottom: 17px;
 }
 
 #main-content #churches-menu .church-card {
-  height: 12.61vh;
-  width: 400px;
-  border: 2px solid black;
+  min-height: 100px;
+  height: 122px;
+  width: 390px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border-radius: 8px;
   position: relative;
-  -webkit-box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.09);
-          box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.09);
+  -webkit-box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.09);
+          box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.09);
   cursor: pointer;
 }
 
@@ -382,19 +416,25 @@ footer {
   font-weight: 500;
   opacity: 0.83;
   letter-spacing: 0.05em;
+  white-space: nowrap;
+  width: 95%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #main-content #churches-menu .church-card .churches-menu-information .menu-icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin-top: -15px;
 }
 
+#main-content #churches-menu .church-card .churches-menu-information .menu-icons .icon:last-child {
+  display: none;
+}
+
 #main-content #churches-menu .church-card .churches-menu-information .menu-icons .icon {
+  margin-right: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -428,45 +468,6 @@ footer {
   display: none !important;
 }
 
-/*    @media screen and (max-width: 1100px) {
-        body {
-        display: flex;
-         flex-direction: column;
-         //align-items: center;
-        }
-        #main-content{
-            width: 96vw;
-            margin-left: auto;
-            margin-right: auto;
-            #show-menu-button{
-                display: block;
-            }
-            #map-and-info{
-                width: 100%
-            }
-            #churches-menu{
-                //display: none;                
-                position: absolute;
-                background-color: white;
-                right: 0;   
-                height: 89vh;
-                margin-right: 2vw;  
-                //display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                .church-card{
-                    width: 90%;
-                    height: 11.6vh;
-                }
-
-            }
-        } 
-
-        footer {
-            font-size: 1vw;
-        }
-    }*/
 @media screen and (max-width: 660px) {
   body {
     display: -webkit-box;
@@ -495,6 +496,9 @@ footer {
   #main-content #map-and-info {
     width: 100%;
   }
+  #main-content #map-and-info #map {
+    border-radius: 0;
+  }
   #main-content #churches-menu {
     display: none;
     position: absolute;
@@ -520,19 +524,39 @@ footer {
   #main-content #churches-menu .church-card .churches-menu-information .icon p {
     font-size: 11px;
   }
-  #main-content footer {
-    font-size: 1.877vw;
+  footer p {
     text-align: center;
     padding: 0 5vw;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .churches-menu-information .menu-icons {
+    display: none !important;
+  }
+}
+
 @media screen and (min-width: 1500px) {
+  .media-wrapper {
+    width: 23vw !important;
+    height: calc((23vw/16*9)) !important;
+  }
+  #video #video-iframe {
+    width: 100% !important;
+    height: calc(23vw/16*9) !important;
+  }
+  #vrview iframe {
+    width: 100% !important;
+    height: calc(23vw/16*9) !important;
+    border-radius: 8px;
+  }
   #churches-menu {
     width: 540px !important;
   }
   #churches-menu .church-card {
-    width: 540px !important;
+    width: 525px !important;
+    height: 140px !important;
+    min-height: 122px !important;
   }
   #churches-menu .church-card h3 {
     font-size: 17px !important;
@@ -540,11 +564,19 @@ footer {
   #churches-menu .church-card .churches-menu-description {
     font-size: 14px !important;
   }
+  #churches-menu .church-card .menu-icons .icon:last-child {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
   #churches-menu .church-card .menu-icons p {
     font-size: 13px !important;
   }
   #map-and-info {
     width: calc(100% - 570px) !important;
+  }
+  footer {
+    font-size: 12px;
   }
 }
 /*# sourceMappingURL=style.css.map */

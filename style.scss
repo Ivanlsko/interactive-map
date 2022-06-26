@@ -13,6 +13,8 @@ $additional-copy: 0.9vw;
 $heading-color: #1E2021;
 
 
+
+
 body {
     margin: 0;
     font-family: "Inter";
@@ -48,7 +50,7 @@ nav {
     justify-content: space-between;
     height: 6vh;
     //border-bottom: solid 0.1px #CED0CF;
-    background-color: #FCFCFC;
+    //background-color: #FCFCFC;
     min-height: 60px;
     position: relative;
     #logo {
@@ -91,20 +93,26 @@ nav {
 
 
 footer {
+    position: relative;
+   // z-index: -333;
     display: flex;
     justify-content: center;
-    height: 5vh;
+    height: 50px;
     font : {
         weight: 300;
-        size: 0.677vw;
+        
     }
+    font-size: 10px;
+    color: #44646E;
 }
 
 #main-content {
-    height: 89vh;
+        height: calc(100% - 100px);
     margin: 0% 1.5%;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    //z-index: 999;
     #show-menu-button{
         display: none;
         /* width: 20px;
@@ -139,7 +147,7 @@ footer {
         height: 100%;
         z-index: -1;
         border-radius: 8px;
-        border: 2px solid;
+        //border: 2px solid;
         opacity: 0;
         //filter: drop-shadow(6px 10px 31px rgba(0, 0, 0, 0.18));
     
@@ -160,26 +168,43 @@ footer {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                margin: 0% 3% 0%;
-                border: 2px solid;
+                background-color: #44646E;
+                margin: 0% 3% 0% 0%;
+                border-radius: 8px 0px 0px 8px;
+                //border: 2px solid;
+                .media-wrapper{
+                    width: 21vw;
+                    height: calc((21vw/16*9));
+                    background-color: #44646E;
+                    filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.172));
+                    border-radius: 8px;
+                }
                 #video {                    
-                    width: 100%;
-                    height: 40%;
                     margin: 0% 0%;
-                    border: 2px solid red;
+                    margin-bottom: 2vw;
+                    //border: 2px solid red;
+
+                    //width: 100%;
                  #video-iframe{
-                    width: 100%;
-                    height: 84%;                    
                     margin-bottom: auto;
+                    //height: 40%;
+                    width: 100%;
+                    height: calc(21vw/16*9);
+                    border-radius: 8px;
+
+
                 } 
             }
                 #vrview {
-                    width: 100%;
-                    height: 30%;
-                    border: 2px solid blue; 
+/*                     width: 100%;
+                    height: 30%; */
+                    //border: 2px solid blue; 
                     iframe {
                         width: 100%;
-                        height: 90%;
+                        height: calc(21vw/16*9);
+                        border-radius: 8px;
+
+
                     }
                 }
             }
@@ -187,10 +212,24 @@ footer {
             #text-wrapper{
                 width: 50%;
                 #back-to-map{
-                    width: 30px;
+                    /* width: 30px;
                     height: 15px;
-                    background-color: black;
+                    background-color: black; */
+                    position: absolute;
+                    right: 2vw;
+                    width: 32px;
+                    height: 32px;
+                    top: 2.7vw;
+                    padding: 6px;
+                    border-radius: 100px;
+                    background-color: rgb(183, 188, 137);
                     cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 24px;
+                    }
                 }
                 #icon-description{
                     display: flex;
@@ -251,8 +290,15 @@ footer {
             } */
     }
 
+
+    
 }
     #churches-menu{
+        //border: 2px solid;
+        position: relative;
+        z-index: 999;
+        overflow-y: auto;
+        //overflow-x: hidden;
         width: 400px;
         height: 100%;
         display: flex;
@@ -261,7 +307,7 @@ footer {
         .activeCard {
             background-color: rgba(58, 81, 92, 1);
             color: white;
-            box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.23) !important;
+            box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.23) !important;
             .icon {
                 svg {
                     fill:rgb(183, 188, 137) !important;
@@ -272,17 +318,18 @@ footer {
                 }
             }
         }
-        .church-card:not(:last-child) {
-            margin-bottom: 2vh;
+        .church-card {
+            margin-bottom: 17px;
         }
         .church-card {
-            height: 12.61vh;
-            width: 400px;
-            border: 2px solid black;
+            min-height: 100px;
+            height: 122px;
+            width: 390px;
+            //border: 2px solid black;
             display: flex;
             border-radius: 8px;
             position: relative;
-            box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.09);
+            box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.09);
             cursor: pointer;
             .btn {
                 width: 10%;
@@ -315,13 +362,22 @@ footer {
                     }
                     opacity: 0.83;
                     letter-spacing: 0.05em;
+                    white-space: nowrap; 
+                    width: 95%; 
+                    overflow: hidden;
+                    text-overflow: ellipsis; 
+                    //border: 1px solid #000000;
                 }
                 .menu-icons {
                     display: flex;
-                    justify-content: space-between;
+                    //justify-content: space-between;
                     //width: %;
                     margin-top: -15px;
+                    .icon:last-child {
+                        display: none;
+                    }
                     .icon {
+                        margin-right: 25px;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
@@ -357,52 +413,13 @@ footer {
         display: none !important;
     }
 
-
-
- /*    @media screen and (max-width: 1100px) {
-        body {
-        display: flex;
-         flex-direction: column;
-         //align-items: center;
-        }
-        #main-content{
-            width: 96vw;
-            margin-left: auto;
-            margin-right: auto;
-            #show-menu-button{
-                display: block;
-            }
-            #map-and-info{
-                width: 100%
-            }
-            #churches-menu{
-                //display: none;                
-                position: absolute;
-                background-color: white;
-                right: 0;   
-                height: 89vh;
-                margin-right: 2vw;  
-                //display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                .church-card{
-                    width: 90%;
-                    height: 11.6vh;
-                }
-
-            }
-        } 
-
-        footer {
-            font-size: 1vw;
-        }
-    }*/
+    //MEDIA 660px
     @media screen and (max-width: 660px) {
         body {
         display: flex;
          flex-direction: column;
          //align-items: center;
+
         }
         nav{
             #logo {
@@ -423,7 +440,10 @@ footer {
                 display: block;
             }
             #map-and-info{
-                width: 100%
+                width: 100%;
+                 #map {
+                    border-radius: 0;
+                } 
             }
             #churches-menu{
                 display: none;                
@@ -450,20 +470,59 @@ footer {
                 }
         }
 
-        footer {
-            font-size: 1.877vw;
+
+      }
+      footer {
+
+        p{
+            //font-size: 2vw;
             text-align: center;
             padding: 0 5vw;
         }
-      }
+
+    }
+    }
+
+    //MEDIA 480px
+    @media screen and (max-width: 480px) {
+        .churches-menu-information{
+            .menu-icons{ 
+                display: none !important;            
+            }
+           
+        }
     }
 
 
+    //MEDIA 1500px
     @media screen and (min-width: 1500px) {
+
+        .media-wrapper{
+            width: 23vw !important;
+            height: calc((23vw/16*9)) !important;
+        }
+        #video {                    
+
+         #video-iframe{
+            //height: 40%;
+            width: 100% !important;
+            height: calc(23vw/16*9) !important;
+        } 
+    }
+        #vrview {
+            iframe {
+                width: 100% !important;
+                height: calc(23vw/16*9) !important;
+                border-radius: 8px;
+            }
+        }
+
         #churches-menu {
             width: 540px !important;
             .church-card {
-                width: 540px !important;
+                width: 525px !important;
+                height: 140px !important;
+                min-height: 122px !important;
                 h3 {
                     font-size: 17px !important;
                 }
@@ -471,6 +530,9 @@ footer {
                     font-size: 14px !important;
                 }
                 .menu-icons {
+                    .icon:last-child {
+                        display: flex !important;
+                    }
                     p{
                         font-size: 13px !important;
                     }
@@ -480,6 +542,10 @@ footer {
 
         #map-and-info {
             width: calc(100% - 570px) !important;
+        }
+
+        footer {
+            font-size: 12px;
         }
     }
 

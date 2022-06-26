@@ -4,18 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM ready!");
 });
 
-window.addEventListener('load', onVrViewLoad);
+//window.addEventListener('load', onVrViewLoad);
 
-function onVrViewLoad() {
-  //alert("loaded")
-  // Selector '#vrview' finds element with id 'vrview'.
-  var vrView = new VRView.Player('#vrview', {
-    image: 'https://live.staticflickr.com/65535/52110870100_fb24ecbe34_k.jpg',
-    //is_stereo: true
-    is_vr_off: true
-  });
 
-}
 
 var informationShown = false;
 getData(1);
@@ -88,6 +79,7 @@ function initMap() {
     const marker = new google.maps.Marker({
       position: positions[i].position,
       churchID: positions[i].churchID,
+      
       map,
       icon: icon,
       //map: map,
@@ -174,14 +166,17 @@ function manageLangs() {
       //setAttribute(selectedChurch)
       loadMenu(jsonData)
       showInformation()
+      //load360(selectedChurch)
       let relatedCard = document.querySelector(`.church-card[title="${ID}"]`)
       console.log("here", relatedCard)
       changeActiveState(relatedCard)
+      load360(selectedChurch)
     }
 
     if (number == 3) {
       console.log("number 3")
       showData(selectedChurch)
+      load360(selectedChurch)
       //loadMenu(jsonData)
       console.log("tuto:", ID)
       //changeActiveState(ID)
@@ -191,6 +186,21 @@ function manageLangs() {
     if (number == 1) loadMenu(jsonData)
   }
 
+  function load360(church) {
+    console.log("360", church.threesixty)
+    //alert("loaded")
+    // Selector '#vrview' finds element with id 'vrview'.
+    if (document.querySelector("#vrview iframe")) {
+      document.querySelector("#vrview iframe").remove();
+    }
+    var vrView =  new VRView.Player('#vrview', {
+      image: church.threesixty,
+      //is_stereo: true
+      is_vr_off: true
+    });
+  
+  }
+
   function showData(church) {
     document.querySelector("#church-name").innerHTML = church.name;
     document.querySelector("#church-type").innerHTML = church.type;
@@ -198,6 +208,7 @@ function manageLangs() {
     document.querySelector("#church-style").innerHTML = church.style;
     document.querySelector("#short-description").innerHTML = church.shortDescription;
     document.querySelector("#long-description-paragraph").innerHTML = church.longDescription;
+    document.querySelector("#video-iframe").src = church.video;
   }
 
   function setAttribute(church) {
@@ -233,7 +244,7 @@ function manageLangs() {
           
         } else cardName = `${(entry[1].name).substring(0, 31)}...`
       } else cardName = (entry[1].name);
-      templateCopy.querySelector(".churches-menu-information > h3").textContent = `${cardName}`;
+      templateCopy.querySelector(".churches-menu-information > h3").textContent = `${entry[1].name/* cardName */}`;
       templateCopy.querySelector(".churches-menu-description").textContent = menuShortDescription;
       templateCopy.querySelector(".churches-menu-information .church-year").textContent = menuYear;
       templateCopy.querySelector(".churches-menu-information .church-type").textContent = `${entry[1].type}`;
