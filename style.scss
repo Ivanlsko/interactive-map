@@ -217,8 +217,8 @@ footer {
                     background-color: black; */
                     position: absolute;
                     right: 2vw;
-                    width: 32px;
-                    height: 32px;
+                    width: 1vw;
+                    height: 1vw;
                     top: 2.7vw;
                     padding: 6px;
                     border-radius: 100px;
@@ -228,19 +228,26 @@ footer {
                     justify-content: center;
                     align-items: center;
                     img {
-                        width: 24px;
+                        width: 0.7vw;
                     }
                 }
                 #icon-description{
                     display: flex;
                     justify-content: space-between;
+                    margin-top: -1vw;
+                    width: 90%;
                     .icon {
                         display: flex;
                         align-items: center;
+                        svg {
+                            width: 1.5vw;
+                            fill: #2f454c;
+                        }
                         div {
                             padding-top: 6.5%;
                         }
                         p {
+                            color: #2f454c;
                             margin-left: 10%;
                             white-space: nowrap;
                             font-size: $additional-copy
@@ -387,8 +394,11 @@ footer {
                         font-size: 11px;
                         }
                         svg {
-                            width: 60% !important;
+                            width: 16px !important;
                             fill: #44646E;
+                        }
+                        svg {
+                            margin-right: 11px;
                         }
                         font : {
                             //size: 0.729vw;
@@ -546,6 +556,23 @@ footer {
 
         footer {
             font-size: 12px;
+        }
+
+        #church-name{
+            font-size: 2vw;
+        }
+
+        #long-description{
+            h2{
+            font-size: 1.6vw;
+            }
+        }
+        #long-description-paragraph{
+            font-size: 0.9vw;
+        }
+
+        #short-description {
+            font-size: 0.9vw !important;
         }
     }
 
