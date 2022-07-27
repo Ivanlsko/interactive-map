@@ -25,7 +25,7 @@
     </nav>
     <main id="main-content">
         <section id="map-and-info"><div id="map" height="1000px" width="1000px"></div>
-            <div id="show-menu-button"><p>prehľad kostolov</p></div>
+            <div class="operate-menu" id="show-menu-button"><p>prehľad kostolov</p></div>
             <div id="information">
                 <main>
                     <section id="media">
@@ -60,8 +60,11 @@
                         </div>
                     </section>
                     <p id="short-description">Patrí k najvýznamnejším historickým dominantám Prešova. Ide o najstaršiu budovu a jedinú zachovanú gotickú sakrálnu stavbu v meste.</p>
+                    <section id="mobile-media">
+                        <div class="media-wrapper" id="video"><iframe id="video-iframe" src="https://player.vimeo.com/video/723743648?h=3c97bae254&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
+                        <div class="media-wrapper" id="vrview"></div></section>
                     <section id="long-description">
-                        <h2>O kostole</h2>
+                        <h2>O chráme</h2>
                         <p id="long-description-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel consectetur non et quam non quis. Ullamcorper lobortis id sit sed sit vel, neque. Eget tempus nulla eget risus iaculis massa ultrices. Congue commodo odio ut ut viverra. Fusce massa elit, justo, tortor malesuada. Enim, arcu turpis dignissim sed velit. <br><br>
         
                             Montes, ultrices natoque tellus at libero egestas elementum. Metus viverra ipsum praesent adipiscing nibh. Ut sapien est vitae sapien arcu risus nunc. Ornare ultricies facilisis sit pellentesque vitae, quis leo. Ut nunc adipiscing tellus mauris id at. A ut lobortis ipsum amet. Mi pulvinar pharetra dolor nulla. Nec dignissim non facilisi scelerisque ullamcorper nullam. Tristique at iaculis neque tortor lorem rutrum odio. <br><br>
@@ -74,6 +77,7 @@
        
     </div>
         <section id="churches-menu">
+            <div class="operate-menu" id="close-menu"><p>Naspať na mapu</p></div>
             <template class="template">
             <div class="church-card">
                 <img class="churches-menu-img" src="https://s8.gifyu.com/images/przyzslop.jpg" alt="">
@@ -115,22 +119,7 @@
         </section>
 
     </main>
-
-
     <footer><p>Projekt je realizovaný v rámci Programu cezhraničnej spolupráce Interreg V-A Poľsko-Slovensko 2014-2020, cez Európsky fond regionálneho rozvoja. </p></footer>
-    <!--         <section id="buttons">
-
-            <div class= "btn-media" id="show-video">
-                <p>Zobraziť videoprehliadku</p>
-                <div class="button-icon">
-                    <img src="assets/video-icon-white.svg" alt=""></div>
-            </div>
-            <div class= "btn-media" id="show-360">
-                <p>Zobraziť 360 fotografiu</p>
-                <div class="button-icon">
-                    <img src="assets/360-icon-white.svg" alt=""></div>
-            </div>
-        </section> -->
     <script src="script.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>

@@ -51,26 +51,32 @@ function initMap() {
     {
       position: new google.maps.LatLng(49.57179396544074, 21.089980142115593),
       churchID: "Chrám Narodenia Panny Márie v Losi",
+      icon: "assets/pin-losie.svg"
     },
     {
       position: new google.maps.LatLng(49.509991351928946, 21.052843342098996),
       churchID: "Chrám sv. Demetra zo Solúna v Śnietnici",
+      icon: "assets/pin-snietnica.svg"
     },
     {
       position: new google.maps.LatLng(49.540390964589605, 21.202099786286336),
       churchID: "Chrám sv. archanjela Michala v Przysłope",
+      icon: "assets/pin-przyslop.svg"
     },
     {
       position: new google.maps.LatLng(49.292697168983466, 21.150125215055755),
       churchID: "Chrám svätého Lukáša v Krivom",
+      icon: "assets/pin-krive.svg"
     },
     {
       position: new google.maps.LatLng(49.2919027660925, 21.074785697861376),
       churchID: "Chrám sv. Kozmu a Damiána - Lukov",
+      icon: "assets/pin-lukov.svg"
     },
     {
       position: new google.maps.LatLng(49.35258195488909, 21.70782195740022),
       churchID: "Chrám sv. Mikuláša v Bodružali",
+      icon: "assets/pin-bodruzal.svg"
     },
   ];
 
@@ -79,9 +85,10 @@ function initMap() {
     const marker = new google.maps.Marker({
       position: positions[i].position,
       churchID: positions[i].churchID,
+      icon: icon,
       
       map,
-      icon: icon,
+      
       //map: map,
       
     });
@@ -190,10 +197,10 @@ function manageLangs() {
     console.log("360", church.threesixty)
     //alert("loaded")
     // Selector '#vrview' finds element with id 'vrview'.
-    if (document.querySelector("#vrview iframe")) {
-      document.querySelector("#vrview iframe").remove();
+    if (document.querySelector("#media #vrview iframe")) {
+      document.querySelector("#media #vrview iframe").remove();
     }
-    var vrView =  new VRView.Player('#vrview', {
+    var vrView =  new VRView.Player('#media #vrview', {
       image: church.threesixty,
       //is_stereo: true
       is_vr_off: true
@@ -231,7 +238,9 @@ function manageLangs() {
     Object.entries(jsonData).forEach((entry) => {
       const templateContent = document.querySelector(".template").content;
       const templateCopy = templateContent.cloneNode(true);
-      let menuShortDescription = (entry[1].shortDescription).substring(0, 70) + "...";
+      let menuShortDescription = (entry[1].shortDescription).substring(0, 80) + "...";
+/*       if(window.innerWidth > 640 && window.innerWidth < 860){
+        menuShortDescription = (entry[1].shortDescription).substring(0, 110) + "...";} */
       let menuYear = (entry[1].year).substring(((entry[1].year).length) - 4);
       let cardName;
       if((entry[1].name).length > 31) {
@@ -292,6 +301,10 @@ function manageLangs() {
   }  
 
   function showInformation(title) {
+    if (window.innerWidth < 860){
+      document.querySelector("#churches-menu").style.zIndex = -1;
+      document.querySelector("#show-menu-button").style.display = "none";
+    }
     //console.log("showinformation()", title)
     document.querySelector("#information").style.opacity = 1;
     document.querySelector("#information").style.zIndex = 1;
@@ -304,6 +317,9 @@ function manageLangs() {
 
   document.querySelector("#back-to-map").addEventListener("click", () => {
     console.log("backtomap")
+    document.querySelector("#show-menu-button").style.display = "block";
+    document.querySelector("#churches-menu").style.zIndex = 1;
+
     document.querySelector("#information").style.opacity = 0;
     document.querySelector("#information").style.zIndex = -1;
     informationShown = false;
@@ -323,7 +339,36 @@ window.initMap = initMap;
 
 //responsivity
 
-document.querySelector("#show-menu-button").addEventListener("click", () => {
+document.querySelectorAll(".operate-menu").forEach((i) => {
+  i.addEventListener("click", operateMenu);
+})
+
+function operateMenu(){
+  let menu = document.querySelector("#churches-menu");
+  let menuStyle = getComputedStyle(menu);
+  if(menuStyle.display == "none") {
+    menu.style.zIndex = 1;
+    menu.style.display = "flex"
+  } else {
+    menu.style.display = "none";
+  }
+}
+
+window.addEventListener("resize", evalMenuDisplay)
+
+function evalMenuDisplay(){
+  if (window.innerWidth < 860) {
+/*     console.count("eval")
+    if (window.innerWidth < 640) {
+    let menuPara = document.querySelectorAll(".churches-menu-description");
+    menuPara.innerHTML = (menuPara.textContent).substring(0, 70)} */
+    return;
+  }
+  let menuStyle = document.querySelector("#churches-menu").style.display;
+  if (menuStyle == "none") {
+    document.querySelector("#churches-menu").style.display = "flex"; }  
+}
+/* document.querySelector("#show-menu-button").addEventListener("click", () => {
   let btn = document.querySelector("#show-menu-button");
   let menu = document.querySelector("#churches-menu");
   let menuStyle = getComputedStyle(menu);
@@ -334,8 +379,7 @@ document.querySelector("#show-menu-button").addEventListener("click", () => {
     menuStyle.display = "none";
     btn.querySelector("p").textContent = "prehľad kostolov"
   }
-  //document.querySelector("#churches-menu").classList.toggle("none");
-})
+}) */
 
 /*   document.querySelectorAll("#churches-menu").forEach((i) =>{
     console.log("jejje")
